@@ -1,0 +1,13 @@
+.header {
+    text-align: center;
+    background: #33B5E5;
+    color: #fff;
+    padding: 12px;
+  }
+  
+  a {
+    text-align: center;
+    margin-right: 2%;
+    text-decoration: none;
+    color: #FFFFFF;
+  }

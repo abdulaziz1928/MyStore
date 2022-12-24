@@ -1,0 +1,8 @@
+<div class="cart-panel">
+    <div class="cart-container">
+        <p *ngIf="isEmpty()" class="empty-cart-message">Cart is empty</p>
+        <app-cart-item class="cart-item" *ngFor="let item of cart" [product]="item" (updated)="updateCartAmount($event)"></app-cart-item>
+        <p *ngIf="!isEmpty()">SubTotal: ${{ getSubtotal() }}</p>
+    </div>
+    <app-register class="form-margin" *ngIf="!isEmpty()"></app-register>
+</div>

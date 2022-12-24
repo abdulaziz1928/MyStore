@@ -1,0 +1,9 @@
+<!-- <ul>
+    <li class="product-container" *ngFor="let prod of productList">
+        <img  class="product-index"  src="{{prod.url}}" alt="">
+    </li>
+</ul> -->
+
+<div class="product-container">
+    <app-product-item  class="product-index" *ngFor="let prod of productList" [product]="prod" (added)="addProduct($event)"></app-product-item>
+</div>
