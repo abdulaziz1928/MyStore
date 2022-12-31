@@ -1,5 +1,10 @@
 <nav class="header">
-    <h1>MyStore</h1>
-    <a routerLink="/">Product List</a>
-    <a routerLink="/cart">Cart <span *ngIf="cartItems >0">{{cartItems}}</span></a>
+  <h1>MyStore</h1>
+  <a routerLink="/">Product List</a>
+  <a routerLink="/cart">
+    Cart
+    <span *ngIf="cartItems > 0">
+      <b>{{ cartItems }}</b>
+    </span>
+  </a>
 </nav>

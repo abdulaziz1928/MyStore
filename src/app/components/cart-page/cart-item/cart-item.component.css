@@ -1,16 +1,23 @@
 .cart-item-details {
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: center;
-    flex-direction: column;
-    align-items: left;
-    margin-left: 80px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  flex-direction: column;
+  align-items: left;
+  margin-left: 80px;
 }
 img {
-    width: 100px;
-    border-radius: 10px;
+  width: 100px;
+  border-radius: 10px;
 }
 .number-input {
-    width: 80px;
-    text-align: center;
-  }
+  width: 80px;
+  text-align: center;
+}
+.del-btn {
+  width: 25px;
+  height: 25px;
+  padding: 0px;
+  text-align: center;
+  color: red;
+}

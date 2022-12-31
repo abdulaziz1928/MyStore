@@ -18,8 +18,10 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
+    "@ctrl/ngx-emoji-mart": "^7.1.0",
     "@ng-bootstrap/ng-bootstrap": "^14.0.0",
     "@popperjs/core": "^2.11.6",
+    "assert": "^2.0.0",
     "bootstrap": "^5.2.3",
     "file-system": "^2.2.2",
     "fs": "^0.0.1-security",
@@ -40,5 +42,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.8.2"
+  },
+  "browser": {
+    "assert": false
   }
 }

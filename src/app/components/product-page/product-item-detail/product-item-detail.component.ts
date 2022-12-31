@@ -11,26 +11,26 @@ import { HttpService } from 'src/app/services/http.service';
 export class ProductItemDetailComponent implements OnInit {
   @Output() addedd: EventEmitter<Product> = new EventEmitter<Product>();
 
-  id: number = -1;
-  amount: number;
-  product: Product = new Product();
+  id: number = 1;
+  amount!: number;
+  product!: Product;
   range: number[] = [...Array(10).keys()].map((data) => {
     return ++data;
   });
 
   constructor(private activeRoute: ActivatedRoute, private http: HttpService) {
-    this.activeRoute.params.subscribe((res) => {
-      this.id = parseInt(res['id'].toString());
+    this.activeRoute.paramMap.subscribe((res) => {
+      this.id = parseInt(res.get('id')!);
       this.product = this.http.getProductById(this.id)!;
+      this.amount = 1;
     });
-    this.amount = 1;
   }
+
   ngOnInit(): void {}
+
   addProduct() {
-    // this.addedd.emit(product);
+    this.product.id = this.id;
     this.product.amount = parseInt(this.amount.toString());
-    alert(this.product.amount)
     this.http.addProduct(this.product);
-    this.amount = 1;
   }
 }

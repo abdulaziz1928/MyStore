@@ -1,6 +1,7 @@
-import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
+import { UserInfo } from 'src/app/models/user-info';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -8,28 +9,37 @@ import { HttpService } from 'src/app/services/http.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
-export class CartComponent implements OnInit{
+export class CartComponent implements OnInit {
   cart: Product[] = [new Product()];
-  constructor(private http: HttpService) {
-    
-  }
+  constructor(private http: HttpService, private router: Router) {}
+
   ngOnInit(): void {
     this.http.getCart().subscribe((res) => (this.cart = res));
   }
 
-  isEmpty():boolean{
-    return this.cart.length===0;
+  isEmpty(): boolean {
+    return this.cart.length === 0;
   }
-  updateCartAmount(product:Product){
-    //TO DO 
-    alert('Updated!')
+
+  updateCartAmount(product: Product) {
     this.http.updateAmount(product);
+    alert('Updated!');
   }
-  getSubtotal():number{
-    let subtotal=0;
-   for (let i of this.cart)
-    subtotal+=i.amount!*i.price;
-    return subtotal
-   
+
+  deleteProduct(product: Product) {
+    this.http.deleteProduct(product);
+  }
+
+  getSubtotal(): number {
+    let subtotal = 0;
+    for (let i of this.cart) subtotal += i.amount! * i.price;
+    return subtotal;
+  }
+
+  submitOrder(info: UserInfo) {
+    this.router.navigateByUrl(
+      `/order/${info.fullname}/${this.getSubtotal().toFixed(2)}`
+    );
+    this.http.resetCart();
   }
 }

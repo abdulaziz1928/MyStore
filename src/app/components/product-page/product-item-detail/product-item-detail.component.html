@@ -1,15 +1,18 @@
-<div class="detail-container">
-    <img src="{{product.url}}">
-    <div class="detail-item">
-        <p class="h4">{{product.name}}</p>
-        <p>${{product.price}}</p>
-        <p>{{product.description}}</p>
-        <select id="selector" class="select-input" [(ngModel)]="amount">
-            <option *ngFor="let i of range" value="{{i}}">{{i}}</option>
-        </select>
-        <br>
-        <input  (click)="addProduct()"  type="submit" class="btn btn-primary" value="Add To cart">
-
-    </div>
-    
+<div *ngIf="product" class="detail-container">
+  <img src="{{ product.url }}" />
+  <div class="detail-item">
+    <p class="h4">{{ product.name }}</p>
+    <p>${{ product.price }}</p>
+    <p>{{ product.description }}</p>
+    <select id="selector" class="select-input" [(ngModel)]="amount">
+      <option *ngFor="let i of range" value="{{ i }}">{{ i }}</option>
+    </select>
+    <br />
+    <input
+      (click)="addProduct()"
+      type="submit"
+      class="btn btn-primary"
+      value="Add To cart"
+    />
+  </div>
 </div>

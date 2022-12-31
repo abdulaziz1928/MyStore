@@ -6,10 +6,11 @@ import { Product } from 'src/app/models/product';
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.css'],
 })
-export class CartItemComponent implements OnInit{
+export class CartItemComponent implements OnInit {
   @Input() product: Product;
-  @Output() updated:EventEmitter<Product> = new EventEmitter<Product>();
-  amount:number=-1;
+  @Output() updated: EventEmitter<Product> = new EventEmitter<Product>();
+  @Output() deleted: EventEmitter<Product> = new EventEmitter<Product>();
+  amount: number = -1;
   range: number[] = [...Array(10).keys()].map((data) => {
     return ++data;
   });
@@ -17,12 +18,13 @@ export class CartItemComponent implements OnInit{
   constructor() {
     this.product = new Product();
   }
+
   ngOnInit(): void {
-    this.amount=this.product.amount!;
+    this.amount = this.product.amount!;
   }
-  
-  amountChanged(){
-    this.product.amount=parseInt(this.amount.toString())
-    this.updated.emit(this.product)
+
+  amountChanged() {
+    this.product.amount = parseInt(this.amount.toString());
+    this.updated.emit(this.product);
   }
 }

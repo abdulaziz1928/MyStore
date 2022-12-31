@@ -1,13 +1,16 @@
-
 <div class="product-container">
-    <a routerLink="/{{product.id}}" >
-        <img class="product-image" src="{{product.url}}" alt="">
-    </a>
-    <p>{{product.name}}</p>
-    <p>${{product.price}}</p>
-    <select id="selector" class="select-input" [(ngModel)]="amount">
-        <option *ngFor="let i of range" value="{{i}}">{{i}}</option>
-    </select>
-    <input  (click)="submitForm()"  type="submit" class="btn btn-primary" value="Add To cart">
+  <a routerLink="/{{ product.id }}">
+    <img class="product-image" src="{{ product.url }}" alt="" />
+  </a>
+  <p>{{ product.name }}</p>
+  <p>${{ product.price }}</p>
+  <select id="selector" class="select-input" [(ngModel)]="amount">
+    <option *ngFor="let i of range" value="{{ i }}">{{ i }}</option>
+  </select>
+  <input
+    (click)="submitForm()"
+    type="submit"
+    class="btn btn-primary"
+    value="Add To cart"
+  />
 </div>
-

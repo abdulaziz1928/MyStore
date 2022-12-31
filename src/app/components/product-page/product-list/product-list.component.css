@@ -12,5 +12,4 @@
   flex-wrap: wrap;
   column-gap: 50px;
   grid-template-columns: auto auto;
-  /* align-content: space-between; */
 }

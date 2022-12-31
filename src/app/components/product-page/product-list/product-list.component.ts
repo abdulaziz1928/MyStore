@@ -15,10 +15,5 @@ export class ProductListComponent implements OnInit {
   }
   addProduct(product: Product) {
     this.http.addProduct(product);
-    this.ngOnInit();
-    
-    // alert(`added product: ${product.name} with amount: ${product.amount} !`);
-
-    // TODO addProduct to cart
   }
 }
