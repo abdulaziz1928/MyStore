@@ -23,11 +23,12 @@ export class CartComponent implements OnInit {
 
   updateCartAmount(product: Product) {
     this.http.updateAmount(product);
-    alert('Updated!');
+    alert(`${product.name} amount updated!`);
   }
 
   deleteProduct(product: Product) {
     this.http.deleteProduct(product);
+    alert(`${product.name} removed from Cart`);
   }
 
   getSubtotal(): number {

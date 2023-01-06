@@ -13,7 +13,7 @@
         id="selector"
         class="number-input"
         [(ngModel)]="amount"
-        (change)="amountChanged()"
+        (ngModelChange)="amountChanged()"
         (select)="(amount)"
       >
         <option *ngFor="let i of range" value="{{ i }}">{{ i }}</option>
