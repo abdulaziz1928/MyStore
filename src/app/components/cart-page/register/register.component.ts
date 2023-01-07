@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       fullname: ['', [Validators.required, Validators.minLength(3)]],
       address: ['', [Validators.required, Validators.minLength(6)]],
-      card_number: ['', [Validators.required, Validators.minLength(16)]],
+      card_number: ['', [Validators.required, Validators.pattern('.{16,}')]],
     });
   }
 

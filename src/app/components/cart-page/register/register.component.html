@@ -49,7 +49,7 @@
     <label class="input-title form-label">Credit Card Number</label>
     <input
       class="form-control"
-      type="text"
+      type="number"
       name="card_number"
       placeholder="(16-digit number)"
       formControlName="card_number"
@@ -64,9 +64,8 @@
       <small *ngIf="card_number.errors['required']">
         card number is required!
       </small>
-      <small *ngIf="card_number.errors['minlength']">
-        card number must be atleast
-        {{ card_number.errors["minlength"].requiredLength }} numbers!
+      <small *ngIf="card_number.errors['pattern']">
+        card number must be atleast 16 numbers!
       </small>
     </div>
     <p class="note">We'll never share your payment details with anyone else</p>
